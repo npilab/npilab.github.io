@@ -161,6 +161,51 @@
   </div>
 </section>
 
+<section class="wash">
+  <div class="wrap">
+    <p class="label"><span data-ko>영상</span><span data-en>Video</span></p>
+    <h2><span data-ko>방송과 인터뷰</span><span data-en>Broadcasts and interviews</span></h2>
+    <div class="grid g3">
+      <div class="card video" data-yt="gRQzRAPiioc">
+        <button type="button" class="vthumb" aria-label="영상 재생 / Play video">
+          <img src="https://i.ytimg.com/vi/gRQzRAPiioc/hqdefault.jpg" alt="" loading="lazy">
+          <span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="body">
+          <h3><span data-ko>중이온가속기연구소 시설 소개</span><span data-en>A tour of the institute</span></h3>
+          <p data-ko>라온의 가속기와 실험장치를 둘러보는 홍보 영상입니다. 연구실이 일하는 현장을 한 번에 볼 수 있습니다.</p>
+          <p data-en>An introduction to the accelerator and experimental systems at RAON — the site where this laboratory works.</p>
+          <p style="margin-top:12px"><a class="ext" href="https://youtu.be/gRQzRAPiioc"><span data-ko>유튜브에서 보기</span><span data-en>Watch on YouTube</span></a></p>
+        </div>
+      </div>
+      <div class="card video" data-yt="tzmVWyz9ZXw">
+        <button type="button" class="vthumb" aria-label="영상 재생 / Play video">
+          <img src="https://i.ytimg.com/vi/tzmVWyz9ZXw/hqdefault.jpg" alt="" loading="lazy">
+          <span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="body">
+          <h3><span data-ko>꿈의 희귀동위원소를 찾는 중이온가속기연구소</span><span data-en>In search of rare isotopes</span></h3>
+          <p data-ko>과학기술정보통신부 &lsquo;이달의 과학정보&rsquo; 영상입니다. 희귀동위원소를 왜 찾는지, 무엇을 하는 곳인지 인터뷰로 소개했습니다.</p>
+          <p data-en>Produced by the Ministry of Science and ICT for its monthly science feature, with an interview on why rare isotopes matter and what the institute does.</p>
+          <p style="margin-top:12px"><a class="ext" href="https://youtu.be/tzmVWyz9ZXw"><span data-ko>유튜브에서 보기</span><span data-en>Watch on YouTube</span></a></p>
+        </div>
+      </div>
+      <div class="card video" data-yt="WSED1GHpvrM">
+        <button type="button" class="vthumb" aria-label="영상 재생 / Play video">
+          <img src="https://i.ytimg.com/vi/WSED1GHpvrM/hqdefault.jpg" alt="" loading="lazy">
+          <span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="body">
+          <h3><span data-ko>TJB 창사기획 · 라온 취재</span><span data-en>TJB feature on RAON</span></h3>
+          <p data-ko>우주용 반도체 내방사선 성능 시험을 다룬 뉴스 보도입니다. 왜 중이온 빔이어야 하는지 인터뷰로 설명했습니다.</p>
+          <p data-en>A news report on radiation-tolerance testing of space-grade semiconductors, including an interview on why heavy ion beams are needed.</p>
+          <p style="margin-top:12px"><a class="ext" href="https://youtu.be/WSED1GHpvrM"><span data-ko>유튜브에서 보기</span><span data-en>Watch on YouTube</span></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="wrap">
     <h2><span data-ko>함께 실험할 학생을 찾고 있습니다</span><span data-en>We are looking for students to run experiments with</span></h2>
@@ -203,6 +248,17 @@ function s(l){h.setAttribute('data-lang',l);h.setAttribute('lang',l);
 b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.setlang===l));});
 try{localStorage.setItem('lang',l);}catch(e){}}
 b.forEach(function(x){x.addEventListener('click',function(){s(x.dataset.setlang);});});
+document.querySelectorAll('.card.video .vthumb').forEach(function(t){
+  t.addEventListener('click',function(){
+    var card=t.closest('.card.video'), id=card.getAttribute('data-yt');
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+    f.setAttribute('allow','accelerometer; autoplay; encrypted-media; picture-in-picture');
+    f.setAttribute('allowfullscreen','');
+    f.setAttribute('title','YouTube video');
+    t.replaceWith(f);
+  });
+});
 var v=null;try{v=localStorage.getItem('lang');}catch(e){}s(v||'ko');})();
 </script>
 </body>

@@ -152,6 +152,17 @@ function s(l){h.setAttribute('data-lang',l);h.setAttribute('lang',l);
 b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.setlang===l));});
 try{localStorage.setItem('lang',l);}catch(e){}}
 b.forEach(function(x){x.addEventListener('click',function(){s(x.dataset.setlang);});});
+document.querySelectorAll('.card.video .vthumb').forEach(function(t){
+  t.addEventListener('click',function(){
+    var card=t.closest('.card.video'), id=card.getAttribute('data-yt');
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+    f.setAttribute('allow','accelerometer; autoplay; encrypted-media; picture-in-picture');
+    f.setAttribute('allowfullscreen','');
+    f.setAttribute('title','YouTube video');
+    t.replaceWith(f);
+  });
+});
 var v=null;try{v=localStorage.getItem('lang');}catch(e){}s(v||'ko');})();
 </script>
 </body>
